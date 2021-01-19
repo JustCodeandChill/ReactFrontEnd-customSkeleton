@@ -9,5 +9,9 @@
       "react": {
         "version": "detect"
       }
+    },
+    "rules": {
+      "semi": ["warn", "always"],
+      "quotes": ["warn", "double"]
     }
   }
