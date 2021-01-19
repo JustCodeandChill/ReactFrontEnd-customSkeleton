@@ -12,6 +12,8 @@
     },
     "rules": {
       "semi": ["warn", "always"],
-      "quotes": ["warn", "double"]
+      "quotes": ["warn", "double"],
+      "indent": ["warn",2],
+      "space-before-function-paren": ["error", "never"]
     }
   }
