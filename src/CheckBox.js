@@ -1,5 +1,4 @@
 import React from 'react';
-import CheckBoxItem from './CheckBoxItem';
 
 class CheckBox extends React.Component {
   constructor(props) {
@@ -17,15 +16,11 @@ class CheckBox extends React.Component {
       cityAddr: defaultBool,
       provinceAddr: defaultBool,
     };
-    this.title = "Số nhà";
-    this.options = [
-      {
-        //title: "Số nhà",
-        name: 'houseNumber',
-        checked: this.state.houseNumber,
-      },
-    ];
   }
+  componentDidMount = () => {
+    this.props.grabInitialState(this.state);
+  };
+
   handleCheckboxChange = (event) => {
     const target = event.target;
     const name = target.name;
@@ -38,34 +33,21 @@ class CheckBox extends React.Component {
 
   handleFormSubmit = (event) => {
     event.preventDefault();
-    console.log('Final state', this.state);
+    console.log("Final state", this.state);
+    this.props.grabInitialState(this.state);
   };
 
   render() {
-    console.log(new String(this.title).codePointAt(1));
     return (
       <div>
         <form onSubmit={this.handleFormSubmit}>
-          {/*<CheckBoxItem
-            title="Số nhà"
-            name="houseNumber"
-            checked={this.state.houseNumber}
-            handleChange={this.handleCheckboxChange}
-          />*/}
-          <CheckBoxItem
-            name={this.title[0]}
-            title={this.options[0].title}
-            checked={this.options[0].checked}
-            handleChange={this.handleChange}
-            onChange={this.handleChange}
-          />
-          {/*<input
+          <input
             type="checkbox"
             name="houseNumber"
             checked={this.state.houseNumber}
             onChange={this.handleCheckboxChange}
           />
-          <label>Số nhà</label>*/}
+          <label>Số nhà</label>
 
           <input
             type="checkbox"

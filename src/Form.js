@@ -1,9 +1,25 @@
-import React from "react";
-import CheckBox from "./CheckBox";
+import React from 'react';
+import CheckBox from './CheckBox';
 
 class Form extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      address: {}
+    };
+  }
+
+  grabInitialState = (state) => {
+    this.setState({
+      address: state,
+    });
+  };
+
   render() {
-    return <div><CheckBox/></div>;
+    console.log(this.state);
+    return (
+        <CheckBox grabInitialState={this.grabInitialState} />
+    );
   }
 }
 

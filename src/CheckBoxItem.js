@@ -1,14 +1,14 @@
-import React from 'react';
+import React from "react";
 
 function CheckBoxItem({ title, name, checked, handleChange }) {
-  console.log('On checked box item');
+  console.log("On checked box item");
   return (
     <div>
       <input
         type="checkbox"
         name={name}
         checked={checked}
-        //onChange={handleChange}
+        onChange={handleChange}
       />
       <label>{title}</label>
     </div>
@@ -16,3 +16,5 @@ function CheckBoxItem({ title, name, checked, handleChange }) {
 }
 
 export default CheckBoxItem;
+
+
