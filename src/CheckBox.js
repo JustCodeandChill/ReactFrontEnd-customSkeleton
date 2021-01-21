@@ -18,7 +18,7 @@ class CheckBox extends React.Component {
     };
   }
   componentDidMount = () => {
-    this.props.grabInitialState(this.state);
+    this.props.grabState(this.state);
   };
 
   handleCheckboxChange = (event) => {
@@ -33,8 +33,8 @@ class CheckBox extends React.Component {
 
   handleFormSubmit = (event) => {
     event.preventDefault();
-    console.log("Final state", this.state);
-    this.props.grabInitialState(this.state);
+    console.log('Final state', this.state);
+    this.props.grabState(this.state);
   };
 
   render() {

@@ -4,6 +4,7 @@ class InputText extends React.Component {
   constructor(props) {
     super(props);
     let defaultText = '';
+
     this.disabled = true;
     this.state = {
       houseNumber: defaultText,
@@ -18,6 +19,9 @@ class InputText extends React.Component {
       provinceAddr: defaultText,
     };
   }
+  componentDidMount = () => {
+    this.props.grabState(this.state);
+  };
 
   handleTextChange = (event) => {
     const target = event.target;
@@ -27,24 +31,53 @@ class InputText extends React.Component {
     this.setState({
       [name]: value,
     });
+
+    console.log(this.state);
   };
 
   handleFormSubmit = (event) => {
     event.preventDefault();
-    console.log('Final state', this.state);
+    console.log('Final state in input-text', this.state);
+    this.props.grabState(this.state);
   };
 
   render() {
+    let enable = this.props;
+    console.log('Enable', enable);
+    ////let b;
+    ////if (enable.houseNumber) {
+    ////  b = (
+    ////    <input
+    ////      type="text"
+    ////      name="houseNumber"
+    ////      checked={this.state.houseNumber}
+    ////      onChange={this.handleTextChange}
+    ////    />
+    ////  );
+    ////} else {
+    ////  b = (
+    ////    <input
+    ////      type="text"
+    ////      name="houseNumber"
+    ////      checked={this.state.houseNumber}
+    ////      onChange={this.handleTextChange}
+    ////      disabled
+    ////    />
+    ////  );
+    //}
+
     return (
       <div>
         <form onSubmit={this.handleFormSubmit}>
           <label>Số nhà</label>
+          {/*{b}*/}
           <input
             type="text"
             name="houseNumber"
             checked={this.state.houseNumber}
             onChange={this.handleTextChange}
-            disabled={this.enable ? false : true}
+            //disabled={enable.houseNumber ? true : false}
+            disabled={enable.houseNumber ? 'disabled' : ''}
           />
 
           <label>Tên ngách (hoặc Hẻm)</label>

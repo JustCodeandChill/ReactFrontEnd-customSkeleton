@@ -1,24 +1,43 @@
 import React from 'react';
 import CheckBox from './CheckBox';
+import InputText from './InputText';
 
 class Form extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      address: {}
+      addressChoice: {},
+      addressInfo: {},
     };
   }
 
-  grabInitialState = (state) => {
+  grabStateFromCheckBox = (state) => {
     this.setState({
-      address: state,
+      addressChoice: state,
     });
+  };
+  grabStateFromInpuText = (state) => {
+    this.setState({
+      addressInfo: state,
+    });
+
+    console.log('In form', this.state);
   };
 
   render() {
-    console.log(this.state);
     return (
-        <CheckBox grabInitialState={this.grabInitialState} />
+      <div>
+        <p>
+          {this.state.addressInfo.houseNumber
+            ? 'true'
+            : this.state.addressInfo.houseNumber}
+        </p>
+        <CheckBox grabState={this.grabStateFromCheckBox} />
+        <InputText
+          grabState={this.grabStateFromInpuText}
+          enable={this.state.addressChoice}
+        />
+      </div>
     );
   }
 }

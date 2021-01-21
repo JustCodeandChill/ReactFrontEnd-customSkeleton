@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
 
 function CheckBoxItem({ title, name, checked, handleChange }) {
-  console.log("On checked box item");
+  console.log('On checked box item');
   return (
     <div>
       <input
@@ -16,5 +16,3 @@ function CheckBoxItem({ title, name, checked, handleChange }) {
 }
 
 export default CheckBoxItem;
-
-
