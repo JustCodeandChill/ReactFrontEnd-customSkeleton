@@ -1,6 +1,7 @@
 import React from 'react';
 import CheckBox from './CheckBox';
 import InputText from './InputText';
+import Result from './Result';
 
 class Form extends React.Component {
   constructor(props) {
@@ -31,6 +32,7 @@ class Form extends React.Component {
           grabState={this.grabStateFromInpuText}
           enable={this.state.addressChoice}
         />
+        <Result/>
       </div>
     );
   }
