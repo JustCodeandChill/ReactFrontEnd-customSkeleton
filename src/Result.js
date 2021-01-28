@@ -2,9 +2,11 @@ import React from 'react';
 
 class Result extends React.Component {
     render() {
+        console.log(this.props.generate);
         return (
             <div>
-                This is result Component;
+                {this.props.generate ? "This is result Component;" : "I am me"}
+                
             </div>
         )
     }

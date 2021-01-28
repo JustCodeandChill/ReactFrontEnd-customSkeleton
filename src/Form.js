@@ -9,6 +9,7 @@ class Form extends React.Component {
     this.state = {
       addressChoice: {},
       addressInfo: {},
+      generate: false
     };
   }
 
@@ -24,15 +25,29 @@ class Form extends React.Component {
     });
   };
 
+  generate = () => {
+    this.setState({
+        generate: true
+    })
+  }
+
+  reset = () => {
+    this.setState({
+        generate: false
+    })
+  }
+
   render() {
     return (
       <div>
         <CheckBox grabState={this.grabStateFromCheckBox} />
         <InputText
           grabState={this.grabStateFromInpuText}
+          generate={this.generate}
+          reset={this.reset}
           enable={this.state.addressChoice}
         />
-        <Result/>
+        <Result generate={this.state.generate}/>
       </div>
     );
   }

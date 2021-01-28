@@ -38,6 +38,7 @@ class InputText extends React.Component {
   handleFormSubmit = (event) => {
     event.preventDefault();
     this.props.grabState(this.state);
+    this.props.generate();
   };
 
   render() {
@@ -160,6 +161,7 @@ class InputText extends React.Component {
           <br />
           <input type="submit" value="Chuyển địa chỉ sang Tiếng Anh" />
         </form>
+        <input type="button" value="Reset" onClick={this.props.reset}/>
       </div>
     );
   }
