@@ -27,7 +27,7 @@ class Form extends React.Component {
 
   generate = () => {
     this.setState({
-        generate: true
+        generate: !this.state.generate
     })
   }
 
@@ -47,7 +47,7 @@ class Form extends React.Component {
           reset={this.reset}
           enable={this.state.addressChoice}
         />
-        <Result generate={this.state.generate}/>
+        <Result addressInfo={this.state.addressInfo} generate={this.state.generate}/>
       </div>
     );
   }
