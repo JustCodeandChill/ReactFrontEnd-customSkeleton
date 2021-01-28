@@ -16,22 +16,16 @@ class Form extends React.Component {
       addressChoice: state,
     });
   };
+
   grabStateFromInpuText = (state) => {
     this.setState({
       addressInfo: state,
     });
-
-    console.log('In form', this.state);
   };
 
   render() {
     return (
       <div>
-        <p>
-          {this.state.addressInfo.houseNumber
-            ? 'true'
-            : this.state.addressInfo.houseNumber}
-        </p>
         <CheckBox grabState={this.grabStateFromCheckBox} />
         <InputText
           grabState={this.grabStateFromInpuText}

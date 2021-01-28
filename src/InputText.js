@@ -3,7 +3,7 @@ import React from 'React';
 class InputText extends React.Component {
   constructor(props) {
     super(props);
-    let defaultText = '';
+    let defaultText = null;
 
     this.disabled = true;
     this.state = {
@@ -37,12 +37,11 @@ class InputText extends React.Component {
 
   handleFormSubmit = (event) => {
     event.preventDefault();
-    console.log('Final state in input-text', this.state);
     this.props.grabState(this.state);
   };
 
   render() {
-    let enable = this.props;
+    let enable = this.props.enable;
     console.log('Enable', enable);
     ////let b;
     ////if (enable.houseNumber) {
@@ -70,14 +69,12 @@ class InputText extends React.Component {
       <div>
         <form onSubmit={this.handleFormSubmit}>
           <label>Số nhà</label>
-          {/*{b}*/}
           <input
             type="text"
             name="houseNumber"
             checked={this.state.houseNumber}
             onChange={this.handleTextChange}
-            //disabled={enable.houseNumber ? true : false}
-            disabled={enable.houseNumber ? 'disabled' : ''}
+            disabled={enable.houseNumber ? '' : 'disabled'}
           />
 
           <label>Tên ngách (hoặc Hẻm)</label>
@@ -86,6 +83,7 @@ class InputText extends React.Component {
             name="alleyLaneAddr"
             checked={this.state.alleyLaneAddr}
             onChange={this.handleTextChange}
+            disabled={enable.alleyLaneAddr ? '' : 'disabled'}
           />
 
           <label>Tên ngõ</label>
@@ -94,6 +92,7 @@ class InputText extends React.Component {
             name="laneAddr"
             checked={this.state.laneAddr}
             onChange={this.handleTextChange}
+            disabled={enable.laneAddr ? '' : 'disabled'}
           />
 
           <label>Tên đường (hoặc Phố)</label>
@@ -102,6 +101,7 @@ class InputText extends React.Component {
             name="streetAddr"
             checked={this.state.streetAddr}
             onChange={this.handleTextChange}
+            disabled={enable.streetAddr ? '' : 'disabled'}
           />
 
           <label>Tên thôn (hoặc Xóm, Ấp)</label>
@@ -110,6 +110,7 @@ class InputText extends React.Component {
             name="hamletAddr"
             checked={this.state.hamletAddr}
             onChange={this.handleTextChange}
+            disabled={enable.hamletAddr ? '' : 'disabled'}
           />
 
           <label>Tên tổ (hoặc Xã)</label>
@@ -118,6 +119,7 @@ class InputText extends React.Component {
             name="communeAddr"
             checked={this.state.communeAddr}
             onChange={this.handleTextChange}
+            disabled={enable.communeAddr ? '' : 'disabled'}
           />
 
           <label>Tên phường</label>
@@ -126,6 +128,7 @@ class InputText extends React.Component {
             name="wardAddr"
             checked={this.state.wardAddr}
             onChange={this.handleTextChange}
+            disabled={enable.wardAddr ? '' : 'disabled'}
           />
 
           <label>Tên quận (hoặc Huyện)</label>
@@ -134,6 +137,7 @@ class InputText extends React.Component {
             name="districtAddr"
             checked={this.state.districtAddr}
             onChange={this.handleTextChange}
+            disabled={enable.districtAddr ? '' : 'disabled'}
           />
 
           <label>Tên thành phố</label>
@@ -142,6 +146,7 @@ class InputText extends React.Component {
             name="cityAddr"
             checked={this.state.cityAddr}
             onChange={this.handleTextChange}
+            disabled={enable.cityAddr ? '' : 'disabled'}
           />
 
           <label>Tên tỉnh</label>
@@ -150,6 +155,7 @@ class InputText extends React.Component {
             name="provinceAddr"
             checked={this.state.provinceAddr}
             onChange={this.handleTextChange}
+            disabled={enable.provinceAddr ? '' : 'disabled'}
           />
           <br />
           <input type="submit" value="Chuyển địa chỉ sang Tiếng Anh" />
