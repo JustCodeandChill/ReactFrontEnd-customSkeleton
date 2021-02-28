@@ -1,5 +1,5 @@
 import React from 'react';
-//import { addressProperty } from './config/globalName';
+import { addressProperty } from './config/globalName';
 
 class CheckBox extends React.Component {
   constructor(props) {
@@ -51,15 +51,10 @@ class CheckBox extends React.Component {
     return (
       <div>
         <form onSubmit={this.handleFormSubmit}>
-          {/*{this.generateInput(globalName)}*/}
+          {this.generateInput(addressProperty.houseNumber)}
           <label>Số nhà</label>
 
-          <input
-            type="checkbox"
-            name="alleyLaneAddr"
-            checked={this.state.alleyLaneAddr}
-            onChange={this.handleCheckboxChange}
-          />
+          {this.generateInput(addressProperty.alleyLaneAddr)}
           <label>Ngách (hoặc Hẻm)</label>
 
           <input
@@ -68,6 +63,7 @@ class CheckBox extends React.Component {
             checked={this.state.laneAddr}
             onChange={this.handleCheckboxChange}
           />
+					{this.generateInput(addressProperty.laneAddr)}
           <label>Ngõ</label>
 
           <input
@@ -76,6 +72,7 @@ class CheckBox extends React.Component {
             checked={this.state.streetAddr}
             onChange={this.handleCheckboxChange}
           />
+					{this.generateInput(addressProperty.streetAddr)}
           <label>Đường (hoặc Phố)</label>
 
           <input
@@ -84,6 +81,7 @@ class CheckBox extends React.Component {
             checked={this.state.hamletAddr}
             onChange={this.handleCheckboxChange}
           />
+					{this.generateInput(addressProperty.hamletAddr)}
           <label>Thôn (hoặc Xóm, Ấp)</label>
 
           <input
@@ -92,6 +90,7 @@ class CheckBox extends React.Component {
             checked={this.state.communeAddr}
             onChange={this.handleCheckboxChange}
           />
+					{this.generateInput(addressProperty.communeAddr)}
           <label>Tổ (hoặc Xã)</label>
 
           <input
@@ -100,6 +99,7 @@ class CheckBox extends React.Component {
             checked={this.state.wardAddr}
             onChange={this.handleCheckboxChange}
           />
+					{this.generateInput(addressProperty.wardAddr)}
           <label>Phường</label>
 
           <input
@@ -108,6 +108,7 @@ class CheckBox extends React.Component {
             checked={this.state.districtAddr}
             onChange={this.handleCheckboxChange}
           />
+					{this.generateInput(addressProperty.districtAddr)}
           <label>Quận (hoặc Huyện)</label>
 
           <input
@@ -116,6 +117,7 @@ class CheckBox extends React.Component {
             checked={this.state.cityAddr}
             onChange={this.handleCheckboxChange}
           />
+					{this.generateInput(addressProperty.cityAddr)}
           <label>Thành phố</label>
 
           <input
@@ -124,6 +126,7 @@ class CheckBox extends React.Component {
             checked={this.state.provinceAddr}
             onChange={this.handleCheckboxChange}
           />
+					{this.generateInput(addressProperty.provinceAddr)}
           <label>Tỉnh</label>
           <input type="submit" value="Khóa lựa chọn" />
         </form>
