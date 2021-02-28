@@ -39,12 +39,12 @@ class CheckBox extends React.Component {
   };
 
   generateInput = (property) => {
-    <input
+    return (<input
       type="checkbox"
       name={property}
       checked={this.state[property]}
       onChange={this.handleCheckboxChange}
-    />;
+    />);
   };
 
   render() {
@@ -57,75 +57,28 @@ class CheckBox extends React.Component {
           {this.generateInput(addressProperty.alleyLaneAddr)}
           <label>Ngách (hoặc Hẻm)</label>
 
-          <input
-            type="checkbox"
-            name="laneAddr"
-            checked={this.state.laneAddr}
-            onChange={this.handleCheckboxChange}
-          />
 					{this.generateInput(addressProperty.laneAddr)}
           <label>Ngõ</label>
 
-          <input
-            type="checkbox"
-            name="streetAddr"
-            checked={this.state.streetAddr}
-            onChange={this.handleCheckboxChange}
-          />
 					{this.generateInput(addressProperty.streetAddr)}
           <label>Đường (hoặc Phố)</label>
 
-          <input
-            type="checkbox"
-            name="hamletAddr"
-            checked={this.state.hamletAddr}
-            onChange={this.handleCheckboxChange}
-          />
+
 					{this.generateInput(addressProperty.hamletAddr)}
           <label>Thôn (hoặc Xóm, Ấp)</label>
 
-          <input
-            type="checkbox"
-            name="communeAddr"
-            checked={this.state.communeAddr}
-            onChange={this.handleCheckboxChange}
-          />
 					{this.generateInput(addressProperty.communeAddr)}
           <label>Tổ (hoặc Xã)</label>
 
-          <input
-            type="checkbox"
-            name="wardAddr"
-            checked={this.state.wardAddr}
-            onChange={this.handleCheckboxChange}
-          />
 					{this.generateInput(addressProperty.wardAddr)}
           <label>Phường</label>
 
-          <input
-            type="checkbox"
-            name="districtAddr"
-            checked={this.state.districtAddr}
-            onChange={this.handleCheckboxChange}
-          />
 					{this.generateInput(addressProperty.districtAddr)}
           <label>Quận (hoặc Huyện)</label>
 
-          <input
-            type="checkbox"
-            name="cityAddr"
-            checked={this.state.cityAddr}
-            onChange={this.handleCheckboxChange}
-          />
 					{this.generateInput(addressProperty.cityAddr)}
           <label>Thành phố</label>
 
-          <input
-            type="checkbox"
-            name="provinceAddr"
-            checked={this.state.provinceAddr}
-            onChange={this.handleCheckboxChange}
-          />
 					{this.generateInput(addressProperty.provinceAddr)}
           <label>Tỉnh</label>
           <input type="submit" value="Khóa lựa chọn" />
