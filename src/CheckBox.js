@@ -1,4 +1,5 @@
 import React from 'react';
+//import { addressProperty } from './config/globalName';
 
 class CheckBox extends React.Component {
   constructor(props) {
@@ -37,16 +38,20 @@ class CheckBox extends React.Component {
     this.props.grabState(this.state);
   };
 
+  generateInput = (property) => {
+    <input
+      type="checkbox"
+      name={property}
+      checked={this.state[property]}
+      onChange={this.handleCheckboxChange}
+    />;
+  };
+
   render() {
     return (
       <div>
         <form onSubmit={this.handleFormSubmit}>
-          <input
-            type="checkbox"
-            name="houseNumber"
-            checked={this.state.houseNumber}
-            onChange={this.handleCheckboxChange}
-          />
+          {/*{this.generateInput(globalName)}*/}
           <label>Số nhà</label>
 
           <input

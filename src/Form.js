@@ -2,6 +2,7 @@ import React from 'react';
 import CheckBox from './CheckBox';
 import InputText from './InputText';
 import Result from './Result';
+import { Container } from '@material-ui/core';
 
 class Form extends React.Component {
   constructor(props) {
@@ -41,7 +42,7 @@ class Form extends React.Component {
 
   render() {
     return (
-      <div>
+      <Container maxWidth="md">
         <CheckBox grabState={this.grabStateFromCheckBox} />
         <InputText
           grabState={this.grabStateFromInpuText}
@@ -51,7 +52,7 @@ class Form extends React.Component {
         />
         <p>Địa chỉ bằng Tiếng Anh</p>
         <Result addressInfo={this.state.addressInfo} generate={this.state.generate}/>
-      </div>
+      </Container>
     );
   }
 }
