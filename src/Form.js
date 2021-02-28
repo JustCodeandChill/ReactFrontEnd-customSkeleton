@@ -33,7 +33,9 @@ class Form extends React.Component {
 
   reset = () => {
     this.setState({
-        generate: false
+        generate: false,
+        addressInfo: {},
+        addressChoice: {}
     })
   }
 

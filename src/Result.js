@@ -81,15 +81,14 @@ class Result extends React.Component {
       this.createAddress('cityAddr') +
       this.createAddress('provinceAddr');
     str = str.substring(0, str.length - 3);
-    str += '..';
+    str += '.';
     return str;
   };
 
   render() {
-    console.log('In Result state', this.state);
-    console.log('In Result props', this.props);
+    let emptyString = "";
     let generatedString = this.generate();
-    return <div>{this.props.generate ? generatedString : generatedString}</div>;
+    return <div>{this.props.generate ? generatedString : emptyString}</div>;
   }
 }
 

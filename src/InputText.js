@@ -1,4 +1,5 @@
 import React from 'React';
+import { addressProperty } from './config/globalName';
 
 class InputText extends React.Component {
   constructor(props) {
@@ -41,127 +42,56 @@ class InputText extends React.Component {
     this.props.generate();
   };
 
+  generateInput = (property) => {
+		let enable = this.props.enable;
+    return (<input
+      type="text"
+      name={property}
+      checked={this.state[property]}
+      onChange={this.handleTextChange}
+      disabled={enable[property] ? '' : 'disabled'}
+    />);
+  };
   render() {
     let enable = this.props.enable;
     console.log('Enable', enable);
-    ////let b;
-    ////if (enable.houseNumber) {
-    ////  b = (
-    ////    <input
-    ////      type="text"
-    ////      name="houseNumber"
-    ////      checked={this.state.houseNumber}
-    ////      onChange={this.handleTextChange}
-    ////    />
-    ////  );
-    ////} else {
-    ////  b = (
-    ////    <input
-    ////      type="text"
-    ////      name="houseNumber"
-    ////      checked={this.state.houseNumber}
-    ////      onChange={this.handleTextChange}
-    ////      disabled
-    ////    />
-    ////  );
-    //}
-
+    console.log('props: ', this.props);
     return (
       <div>
         <form onSubmit={this.handleFormSubmit}>
           <label>Số nhà</label>
-          <input
-            type="text"
-            name="houseNumber"
-            checked={this.state.houseNumber}
-            onChange={this.handleTextChange}
-            disabled={enable.houseNumber ? '' : 'disabled'}
-          />
+					{this.generateInput(addressProperty.houseNumber)}
 
           <label>Tên ngách (hoặc Hẻm)</label>
-          <input
-            type="text"
-            name="alleyLaneAddr"
-            checked={this.state.alleyLaneAddr}
-            onChange={this.handleTextChange}
-            disabled={enable.alleyLaneAddr ? '' : 'disabled'}
-          />
+					{this.generateInput(addressProperty.alleyLaneAddr)}
 
           <label>Tên ngõ</label>
-          <input
-            type="text"
-            name="laneAddr"
-            checked={this.state.laneAddr}
-            onChange={this.handleTextChange}
-            disabled={enable.laneAddr ? '' : 'disabled'}
-          />
+					{this.generateInput(addressProperty.laneAddr)}
 
           <label>Tên đường (hoặc Phố)</label>
-          <input
-            type="text"
-            name="streetAddr"
-            checked={this.state.streetAddr}
-            onChange={this.handleTextChange}
-            disabled={enable.streetAddr ? '' : 'disabled'}
-          />
+					{this.generateInput(addressProperty.streetAddr)}
 
           <label>Tên thôn (hoặc Xóm, Ấp)</label>
-          <input
-            type="text"
-            name="hamletAddr"
-            checked={this.state.hamletAddr}
-            onChange={this.handleTextChange}
-            disabled={enable.hamletAddr ? '' : 'disabled'}
-          />
+					{this.generateInput(addressProperty.hamletAddr)}
 
           <label>Tên tổ (hoặc Xã)</label>
-          <input
-            type="text"
-            name="communeAddr"
-            checked={this.state.communeAddr}
-            onChange={this.handleTextChange}
-            disabled={enable.communeAddr ? '' : 'disabled'}
-          />
+					{this.generateInput(addressProperty.communeAddr)}
 
           <label>Tên phường</label>
-          <input
-            type="text"
-            name="wardAddr"
-            checked={this.state.wardAddr}
-            onChange={this.handleTextChange}
-            disabled={enable.wardAddr ? '' : 'disabled'}
-          />
+					{this.generateInput(addressProperty.wardAddr)}
 
           <label>Tên quận (hoặc Huyện)</label>
-          <input
-            type="text"
-            name="districtAddr"
-            checked={this.state.districtAddr}
-            onChange={this.handleTextChange}
-            disabled={enable.districtAddr ? '' : 'disabled'}
-          />
+					{this.generateInput(addressProperty.districtAddr)}
 
           <label>Tên thành phố</label>
-          <input
-            type="text"
-            name="cityAddr"
-            checked={this.state.cityAddr}
-            onChange={this.handleTextChange}
-            disabled={enable.cityAddr ? '' : 'disabled'}
-          />
+					{this.generateInput(addressProperty.cityAddr)}
 
           <label>Tên tỉnh</label>
-          <input
-            type="text"
-            name="provinceAddr"
-            checked={this.state.provinceAddr}
-            onChange={this.handleTextChange}
-            disabled={enable.provinceAddr ? '' : 'disabled'}
-          />
+					{this.generateInput(addressProperty.provinceAddr)}
           <br />
           <input type="submit" value="Chuyển địa chỉ sang Tiếng Anh" />
         </form>
-        <input type="button" value="Reset" onClick={this.props.reset}/>
+        <input type="button" value="Reset" onClick={this.props.reset} />
       </div>
     );
   }
