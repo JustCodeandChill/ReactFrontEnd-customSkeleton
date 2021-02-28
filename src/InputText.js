@@ -1,11 +1,10 @@
 import React from 'React';
 import { addressProperty } from './config/globalName';
+let defaultText = null;
 
 class InputText extends React.Component {
   constructor(props) {
     super(props);
-    let defaultText = null;
-
     this.disabled = true;
     this.state = {
       houseNumber: defaultText,
@@ -18,6 +17,7 @@ class InputText extends React.Component {
       districtAddr: defaultText,
       cityAddr: defaultText,
       provinceAddr: defaultText,
+			reset: false
     };
   }
   componentDidMount = () => {
@@ -50,11 +50,26 @@ class InputText extends React.Component {
       checked={this.state[property]}
       onChange={this.handleTextChange}
       disabled={enable[property] ? '' : 'disabled'}
+			value={this.state[property] ? this.state[property] : ""}
     />);
   };
+
+	reset = () => {
+		this.setState({
+			houseNumber: defaultText,
+      alleyLaneAddr: defaultText,
+      laneAddr: defaultText,
+      streetAddr: defaultText,
+      hamletAddr: defaultText,
+      communeAddr: defaultText,
+      wardAddr: defaultText,
+      districtAddr: defaultText,
+      cityAddr: defaultText,
+      provinceAddr: defaultText,
+		})
+	}
+
   render() {
-    let enable = this.props.enable;
-    console.log('Enable', enable);
     console.log('props: ', this.props);
     return (
       <div>
@@ -91,7 +106,7 @@ class InputText extends React.Component {
           <br />
           <input type="submit" value="Chuyển địa chỉ sang Tiếng Anh" />
         </form>
-        <input type="button" value="Reset" onClick={this.props.reset} />
+        <input type="button" value="Xóa địa chỉ đã nhập" onClick={this.reset} />
       </div>
     );
   }
