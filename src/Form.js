@@ -1,4 +1,5 @@
 import React from 'react';
+import Instruction from './Instruction';
 import CheckBox from './CheckBox';
 import InputText from './InputText';
 import Result from './Result';
@@ -43,6 +44,7 @@ class Form extends React.Component {
   render() {
     return (
       <Container maxWidth="md">
+          <Instruction />
         <CheckBox grabState={this.grabStateFromCheckBox} />
         <br/>
         <InputText
