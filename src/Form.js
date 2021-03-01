@@ -1,4 +1,5 @@
 import React from 'react';
+import Introduction from './Introduction';
 import Instruction from './Instruction';
 import CheckBox from './CheckBox';
 import InputText from './InputText';
@@ -11,7 +12,7 @@ class Form extends React.Component {
     this.state = {
       addressChoice: {},
       addressInfo: {},
-      generate: false
+      generate: false,
     };
   }
 
@@ -29,24 +30,25 @@ class Form extends React.Component {
 
   generate = () => {
     this.setState({
-        generate: !this.state.generate
-    })
-  }
+      generate: !this.state.generate,
+    });
+  };
 
-//  reset = () => {
-//    this.setState({
-//        generate: false,
-//        addressInfo: {},
-//        addressChoice: {}
-//    })
-//  }
+  //  reset = () => {
+  //    this.setState({
+  //        generate: false,
+  //        addressInfo: {},
+  //        addressChoice: {}
+  //    })
+  //  }
 
   render() {
     return (
       <Container maxWidth="md">
-          <Instruction />
+        <Introduction />
+        <Instruction />
         <CheckBox grabState={this.grabStateFromCheckBox} />
-        <br/>
+        <br />
         <InputText
           grabState={this.grabStateFromInpuText}
           generate={this.generate}
@@ -54,7 +56,10 @@ class Form extends React.Component {
           enable={this.state.addressChoice}
         />
         <p>Địa chỉ bằng Tiếng Anh</p>
-        <Result addressInfo={this.state.addressInfo} generate={this.state.generate}/>
+        <Result
+          addressInfo={this.state.addressInfo}
+          generate={this.state.generate}
+        />
       </Container>
     );
   }

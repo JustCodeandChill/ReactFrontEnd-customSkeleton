@@ -1,7 +1,6 @@
 * {
   font-family: 'Open Sans', sans-serif;
   transition: all 0.2s;
+  background-color: #fafafa;
 }
-h1 {
-  color: red;
-}
+
