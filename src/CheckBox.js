@@ -107,7 +107,7 @@ class CheckBox extends React.Component {
             </Grid>
           </Grid>
           <br/>
-          <input type="submit" value="Khóa lựa chọn" />
+          <input type="submit" value="Khóa lựa chọn" className="submit"/>
         </form>
       </div>
     );
