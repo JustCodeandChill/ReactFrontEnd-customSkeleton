@@ -44,6 +44,7 @@ class Form extends React.Component {
     return (
       <Container maxWidth="md">
         <CheckBox grabState={this.grabStateFromCheckBox} />
+        <br/>
         <InputText
           grabState={this.grabStateFromInpuText}
           generate={this.generate}

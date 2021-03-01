@@ -1,5 +1,5 @@
 import React from 'react';
-import './styles/welcome.css';
+import './styles/App.css';
 //import Checkbox from './CheckBox';
 import Form from './Form';
 

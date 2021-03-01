@@ -1,5 +1,7 @@
 import React from 'react';
 import { addressProperty } from './config/globalName';
+import { Grid } from '@material-ui/core';
+import './styles/checkbox.css'
 
 class CheckBox extends React.Component {
   constructor(props) {
@@ -34,53 +36,77 @@ class CheckBox extends React.Component {
 
   handleFormSubmit = (event) => {
     event.preventDefault();
-    console.log('Final state', this.state);
     this.props.grabState(this.state);
   };
 
   generateInput = (property) => {
-    return (<input
-      type="checkbox"
-      name={property}
-      checked={this.state[property]}
-      onChange={this.handleCheckboxChange}
-    />);
+    return (
+      <input
+        type="checkbox"
+        name={property}
+        checked={this.state[property]}
+        onChange={this.handleCheckboxChange}
+        className="regular-checkbox"
+      />
+    );
   };
 
   render() {
     return (
       <div>
         <form onSubmit={this.handleFormSubmit}>
-          {this.generateInput(addressProperty.houseNumber)}
-          <label>Số nhà</label>
+          <Grid container spacing={1}>
+            <Grid container item xs={12} sm={3} className="m-b">
+              {this.generateInput(addressProperty.houseNumber)}
+              <label>Số nhà</label>
+            </Grid>
 
-          {this.generateInput(addressProperty.alleyLaneAddr)}
-          <label>Ngách (hoặc Hẻm)</label>
+            <Grid container item xs={12} sm={3} m={1}>
+              {this.generateInput(addressProperty.alleyLaneAddr)}
+              <label>Ngách (hoặc Hẻm)</label>
+            </Grid>
 
-					{this.generateInput(addressProperty.laneAddr)}
-          <label>Ngõ</label>
+            <Grid container item xs={12} sm={3} m={1}>
+              {this.generateInput(addressProperty.laneAddr)}
+              <label>Ngõ</label>
+            </Grid>
 
-					{this.generateInput(addressProperty.streetAddr)}
-          <label>Đường (hoặc Phố)</label>
+            <Grid container item xs={12} sm={3}>
+              {this.generateInput(addressProperty.streetAddr)}
+              <label>Đường (hoặc Phố)</label>
+            </Grid>
 
+            <Grid container item xs={12} sm={3}>
+              {this.generateInput(addressProperty.hamletAddr)}
+              <label>Thôn (hoặc Xóm, Ấp)</label>
+            </Grid>
 
-					{this.generateInput(addressProperty.hamletAddr)}
-          <label>Thôn (hoặc Xóm, Ấp)</label>
+            <Grid container item xs={12} sm={3}>
+              {this.generateInput(addressProperty.communeAddr)}
+              <label>Tổ (hoặc Xã)</label>
+            </Grid>
 
-					{this.generateInput(addressProperty.communeAddr)}
-          <label>Tổ (hoặc Xã)</label>
+            <Grid container item xs={12} sm={3}>
+              {this.generateInput(addressProperty.wardAddr)}
+              <label>Phường</label>
+            </Grid>
 
-					{this.generateInput(addressProperty.wardAddr)}
-          <label>Phường</label>
+            <Grid container item xs={12} sm={3}>
+              {this.generateInput(addressProperty.districtAddr)}
+              <label>Quận (hoặc Huyện)</label>
+            </Grid>
 
-					{this.generateInput(addressProperty.districtAddr)}
-          <label>Quận (hoặc Huyện)</label>
+            <Grid container item xs={12} sm={3}>
+              {this.generateInput(addressProperty.cityAddr)}
+              <label>Thành phố</label>
+            </Grid>
 
-					{this.generateInput(addressProperty.cityAddr)}
-          <label>Thành phố</label>
-
-					{this.generateInput(addressProperty.provinceAddr)}
-          <label>Tỉnh</label>
+            <Grid container item xs={12} sm={3}>
+              {this.generateInput(addressProperty.provinceAddr)}
+              <label>Tỉnh</label>
+            </Grid>
+          </Grid>
+          <br/>
           <input type="submit" value="Khóa lựa chọn" />
         </form>
       </div>
