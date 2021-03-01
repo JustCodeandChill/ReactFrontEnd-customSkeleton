@@ -1,4 +1,5 @@
 import React from 'React';
+import { Grid } from '@material-ui/core';
 import { addressProperty } from './config/globalName';
 let defaultText = null;
 
@@ -17,7 +18,7 @@ class InputText extends React.Component {
       districtAddr: defaultText,
       cityAddr: defaultText,
       provinceAddr: defaultText,
-			reset: false
+      reset: false,
     };
   }
   componentDidMount = () => {
@@ -43,20 +44,22 @@ class InputText extends React.Component {
   };
 
   generateInput = (property) => {
-		let enable = this.props.enable;
-    return (<input
-      type="text"
-      name={property}
-      checked={this.state[property]}
-      onChange={this.handleTextChange}
-      disabled={enable[property] ? '' : 'disabled'}
-			value={this.state[property] ? this.state[property] : ""}
-    />);
+    let enable = this.props.enable;
+    return (
+      <input
+        type="text"
+        name={property}
+        checked={this.state[property]}
+        onChange={this.handleTextChange}
+        disabled={enable[property] ? '' : 'disabled'}
+        value={this.state[property] ? this.state[property] : ''}
+      />
+    );
   };
 
-	reset = () => {
-		this.setState({
-			houseNumber: defaultText,
+  reset = () => {
+    this.setState({
+      houseNumber: defaultText,
       alleyLaneAddr: defaultText,
       laneAddr: defaultText,
       streetAddr: defaultText,
@@ -66,48 +69,71 @@ class InputText extends React.Component {
       districtAddr: defaultText,
       cityAddr: defaultText,
       provinceAddr: defaultText,
-		})
-	}
+    });
+  };
 
   render() {
     console.log('props: ', this.props);
     return (
-      <div>
-        <form onSubmit={this.handleFormSubmit}>
-          <label>Số nhà</label>
-					{this.generateInput(addressProperty.houseNumber)}
+      <form onSubmit={this.handleFormSubmit}>
+        <Grid container spacing={1}>
+          <Grid item xs={12} sm={4} md={6}>
+            <label>Số nhà</label>
+            {this.generateInput(addressProperty.houseNumber)}
+          </Grid>
 
-          <label>Tên ngách (hoặc Hẻm)</label>
-					{this.generateInput(addressProperty.alleyLaneAddr)}
+          <Grid item xs={12} sm={6} md={6}>
+            <label>Tên ngách (hoặc Hẻm)</label>
+            {this.generateInput(addressProperty.alleyLaneAddr)}
+          </Grid>
 
-          <label>Tên ngõ</label>
-					{this.generateInput(addressProperty.laneAddr)}
+          <Grid item xs={12} sm={6} md={6}>
+            {' '}
+            <label>Tên ngõ</label>
+            {this.generateInput(addressProperty.laneAddr)}
+          </Grid>
 
-          <label>Tên đường (hoặc Phố)</label>
-					{this.generateInput(addressProperty.streetAddr)}
+          <Grid item xs={12} sm={4} md={6}>
+            {' '}
+            <label>Tên đường (hoặc Phố)</label>
+            {this.generateInput(addressProperty.streetAddr)}
+          </Grid>
 
-          <label>Tên thôn (hoặc Xóm, Ấp)</label>
-					{this.generateInput(addressProperty.hamletAddr)}
+          <Grid item xs={12} sm={4} md={6}>
+            <label>Tên thôn (hoặc Xóm, Ấp)</label>
+            {this.generateInput(addressProperty.hamletAddr)}
+          </Grid>
 
-          <label>Tên tổ (hoặc Xã)</label>
-					{this.generateInput(addressProperty.communeAddr)}
+          <Grid item xs={12} sm={4} md={6}>
+            <label>Tên tổ (hoặc Xã)</label>
+            {this.generateInput(addressProperty.communeAddr)}
+          </Grid>
 
-          <label>Tên phường</label>
-					{this.generateInput(addressProperty.wardAddr)}
+          <Grid item xs={12} sm={4} md={6}>
+            <label>Tên phường</label>
+            {this.generateInput(addressProperty.wardAddr)}
+          </Grid>
 
-          <label>Tên quận (hoặc Huyện)</label>
-					{this.generateInput(addressProperty.districtAddr)}
+          <Grid item xs={12} sm={4} md={6}>
+            <label>Tên quận (hoặc Huyện)</label>
+            {this.generateInput(addressProperty.districtAddr)}
+          </Grid>
 
-          <label>Tên thành phố</label>
-					{this.generateInput(addressProperty.cityAddr)}
+          <Grid item xs={12} sm={4} md={6}>
+            <label>Tên thành phố</label>
+            {this.generateInput(addressProperty.cityAddr)}
+          </Grid>
 
-          <label>Tên tỉnh</label>
-					{this.generateInput(addressProperty.provinceAddr)}
+          <Grid item xs={12} sm={4} md={6}>
+            <label>Tên tỉnh</label>
+            {this.generateInput(addressProperty.provinceAddr)}
+          </Grid>
+
           <br />
-          <input type="submit" value="Chuyển địa chỉ sang Tiếng Anh" />
-        </form>
+        </Grid>
+        <input type="submit" value="Chuyển địa chỉ sang Tiếng Anh" />
         <input type="button" value="Xóa địa chỉ đã nhập" onClick={this.reset} />
-      </div>
+      </form>
     );
   }
 }
