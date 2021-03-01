@@ -27,11 +27,11 @@
 
 .submit {
   padding: 9px 12px;
-  background-color: #1976d2;
-  color: #fafafa;
+  background-color: #0779e4;
+  color: #ffffff;
   border-radius: 5px;
   border: none;
-  font-size: 18px;
+  font-size: 17px;
   cursor: pointer;
 }
 
@@ -42,4 +42,16 @@
 
 .submit:active {
   transform: translateY(4px);
+}
+
+fieldset {
+  border: 2px solid #0779e4;
+  border-radius: 5px;
+}
+
+.legend {
+  display: block;
+  font-size: 22px;
+  color: #0779e4;
+  margin-bottom: 10px;
 }

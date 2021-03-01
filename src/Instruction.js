@@ -12,18 +12,22 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
   },
   heading: {
-    fontSize: theme.typography.pxToRem(15),
+    fontSize: theme.typography.pxToRem(20),
     fontWeight: theme.typography.fontWeightRegular,
   },
+	blue: {
+		border: "2px solid #0779e4",
+		borderRadius: "5px"
+	}
 }));
 
 export default function Instruction() {
   const classes = useStyles();
 
   return (
-    <Grid container item xs={12} sm={10}>
+    <Grid container item xs={12} sm={10} >
       <div className={classes.root}>
-        <Accordion>
+        <Accordion className={classes.blue}>
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
             aria-controls="panel1a-content"
@@ -33,13 +37,19 @@ export default function Instruction() {
           </AccordionSummary>
           <AccordionDetails>
             <Typography>
-              Bước 1: Chọn ô mà bạn địa chỉ ở Tiếng Việt của bạn sẽ có và bấm  
-              <b>Khóa lựa chọn</b>
+              Bước 1: Chọn ô mà bạn địa chỉ ở Tiếng Việt của bạn sẽ có và bấm <b>Khóa lựa chọn</b>
               <br />
               Bước 2: Nhập địa chỉ tại những những ô trắng bạn đã chọn và bấm{' '}
               <b>Dịch</b>
               <br />
-							Bước 3: Sao chép kết quả và Sử dụng thôi :))
+              Bước 3: Sao chép kết quả và Sử dụng thôi :))
+            </Typography>
+          </AccordionDetails>
+
+          <AccordionDetails>
+            <Typography>
+              Nếu bấm <b>xóa địa chỉ đã nhập</b> thì toàn bộ địa chỉ trên ô nhập
+              sẽ bị xóa. Nên dùng khi muốn nhập lại từ đầu.
             </Typography>
           </AccordionDetails>
         </Accordion>
