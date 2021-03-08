@@ -29,7 +29,9 @@ export default function Introduction() {
 
   return (
     <Grid container item xs={12} sm={10}>
-      <h1 style={{textAlign: "center" }}>Chuyển địa chỉ nhà từ Việt sang Anh</h1>
+      <h1 style={{ textAlign: 'center' }}>
+        Chuyển địa chỉ nhà từ Việt sang Anh
+      </h1>
       <div className={classes.root}>
         <Accordion className={classes.blue}>
           <AccordionSummary

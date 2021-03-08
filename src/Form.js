@@ -47,15 +47,18 @@ class Form extends React.Component {
       <Container maxWidth="md">
         <Introduction />
         <Instruction />
+        <h2>Bước 1: Chọn ô</h2>
         <CheckBox grabState={this.grabStateFromCheckBox} />
         <br />
+        <h2>Bước 2: Điền địa chỉ</h2>
         <InputText
           grabState={this.grabStateFromInpuText}
           generate={this.generate}
           reset={this.reset}
           enable={this.state.addressChoice}
         />
-        <p>Địa chỉ bằng Tiếng Anh</p>
+        <h2>Bước 3: Sao chép kết quả</h2>
+        <p>Địa chỉ của bạn bằng Tiếng Anh</p>
         <Result
           addressInfo={this.state.addressInfo}
           generate={this.state.generate}

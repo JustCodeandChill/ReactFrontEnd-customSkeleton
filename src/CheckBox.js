@@ -58,52 +58,53 @@ class CheckBox extends React.Component {
           <fieldset>
             <legend className="legend">Chọn Ô</legend>
             <Grid container spacing={1}>
-              <Grid container item xs={12} sm={3} className="m-b">
+              <Grid container item xs={12} sm={6} md={6}>
                 {this.generateInput(addressProperty.houseNumber)}
                 <label>Số nhà</label>
               </Grid>
 
-              <Grid container item xs={12} sm={3} m={1}>
+              <Grid container item xs={12} sm={6} md={6}>
                 {this.generateInput(addressProperty.alleyLaneAddr)}
                 <label>Ngách (hoặc Hẻm)</label>
               </Grid>
 
-              <Grid container item xs={12} sm={3} m={1}>
+              <Grid container item xs={12} sm={6} md={6}>
                 {this.generateInput(addressProperty.laneAddr)}
                 <label>Ngõ</label>
               </Grid>
 
-              <Grid container item xs={12} sm={3}>
+              <Grid container item xs={12} sm={6} md={6}>
                 {this.generateInput(addressProperty.streetAddr)}
                 <label>Đường (hoặc Phố)</label>
+                <br />
               </Grid>
 
-              <Grid container item xs={12} sm={3}>
+              <Grid container item xs={12} sm={6} md={6}>
                 {this.generateInput(addressProperty.hamletAddr)}
                 <label>Thôn (hoặc Xóm, Ấp)</label>
               </Grid>
 
-              <Grid container item xs={12} sm={3}>
+              <Grid container item xs={12} sm={6} md={6}>
                 {this.generateInput(addressProperty.communeAddr)}
                 <label>Tổ (hoặc Xã)</label>
               </Grid>
 
-              <Grid container item xs={12} sm={3}>
+              <Grid container item xs={12} sm={6} md={6}>
                 {this.generateInput(addressProperty.wardAddr)}
                 <label>Phường</label>
               </Grid>
 
-              <Grid container item xs={12} sm={3}>
+              <Grid container item xs={12} sm={6} md={6}>
                 {this.generateInput(addressProperty.districtAddr)}
                 <label>Quận (hoặc Huyện)</label>
               </Grid>
 
-              <Grid container item xs={12} sm={3}>
+              <Grid container item xs={12} sm={6} md={6}>
                 {this.generateInput(addressProperty.cityAddr)}
                 <label>Thành phố</label>
               </Grid>
 
-              <Grid container item xs={12} sm={3}>
+              <Grid container item xs={12} sm={6} md={6}>
                 {this.generateInput(addressProperty.provinceAddr)}
                 <label>Tỉnh</label>
               </Grid>
