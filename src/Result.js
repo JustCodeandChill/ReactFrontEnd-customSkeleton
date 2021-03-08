@@ -1,4 +1,5 @@
 import React from 'react';
+import './styles/Result.css';
 import {
   removeVietnameseTones,
   isAlphabetOnly,
@@ -7,6 +8,10 @@ import {
 import { addressProperty } from './config/globalName';
 
 class Result extends React.Component {
+  constructor(props) {
+    super(props);
+    this.result = React.createRef();
+  }
   createPartOfTheAddress = (stringToTest, appendAddress) => {
     let result = '';
     if (!isEmpty(stringToTest)) {
@@ -77,6 +82,7 @@ class Result extends React.Component {
       this.createAddress('streetAddr') +
       this.createAddress('hamletAddr') +
       this.createAddress('communeAddr') +
+      this.createAddress('wardAddr') +
       this.createAddress('districtAddr') +
       this.createAddress('cityAddr') +
       this.createAddress('provinceAddr');
@@ -85,10 +91,30 @@ class Result extends React.Component {
     return str;
   };
 
+//  copyToClipBoard = (e) => {
+//    if (this.result.current.innerText) return;
+//    var copyText = '';
+//    copyText = this.result;
+
+//    /* Select the text field */
+//    copyText.select();
+//    copyText.setSelectionRange(0, 99999); /* For mobile devices */
+//    console.log('clicked', copyText);
+//    /* Copy the text inside the text field */
+//    document.execCommand('copy');
+//  };
+
   render() {
-    let emptyString = "";
+    let emptyString = '';
     let generatedString = this.generate();
-    return <div>{this.props.generate ? generatedString : emptyString}</div>;
+    return (
+      <div>
+        {/*<button className="copy-btn" onClick={this.copyToClipBoard}>Copy</button>*/}
+        <div className="result" ref={this.result}>
+          {this.props.generate ? generatedString : emptyString}
+        </div>
+      </div>
+    );
   }
 }
 

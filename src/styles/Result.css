@@ -1,0 +1,12 @@
+.result {
+    background-color: #fafafa;
+    border: 2px solid rgb(44, 83, 190);
+    border-radius: 5px;
+    min-height: 100px;
+    padding: 5px;
+    cursor: text;
+}
+
+.copy-btn {
+    cursor: pointer;
+}
