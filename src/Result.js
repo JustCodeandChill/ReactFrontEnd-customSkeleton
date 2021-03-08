@@ -91,26 +91,33 @@ class Result extends React.Component {
     return str;
   };
 
-//  copyToClipBoard = (e) => {
-//    if (this.result.current.innerText) return;
-//    var copyText = '';
-//    copyText = this.result;
+  copyToClipBoard = (e) => {
+    var el = document.createElement('textarea');
+    // Set value (string to be copied)
+    el.value = document.getElementById("result").innerText;
+    // Set non-editable to avoid focus and move outside of view
+    el.setAttribute('readonly', '');
+    el.style = {position: 'absolute', left: '-9999px'};
+    document.body.appendChild(el);
+    // Select text inside element
+    el.select();
+    // Copy text to clipboard
+    document.execCommand('copy');
+    alert("Đã sao chép địa chỉ");
+    // Remove temporary element
+    document.body.removeChild(el);
 
-//    /* Select the text field */
-//    copyText.select();
-//    copyText.setSelectionRange(0, 99999); /* For mobile devices */
-//    console.log('clicked', copyText);
-//    /* Copy the text inside the text field */
-//    document.execCommand('copy');
-//  };
+  };
 
   render() {
     let emptyString = '';
     let generatedString = this.generate();
     return (
       <div>
-        {/*<button className="copy-btn" onClick={this.copyToClipBoard}>Copy</button>*/}
-        <div className="result" ref={this.result}>
+        <button className="copy-btn" onClick={this.copyToClipBoard}>
+          Sao chép địa chỉ
+        </button>
+        <div className="result" id="result">
           {this.props.generate ? generatedString : emptyString}
         </div>
       </div>

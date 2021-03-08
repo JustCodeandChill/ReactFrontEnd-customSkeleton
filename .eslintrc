@@ -1,21 +1,30 @@
 {
-    "parser": "babel-eslint",
-    "extends": "react",
-    "env": {
-      "browser": true,
-      "node": true
-    },
-    "settings": {
-      "react": {
-        "version": "detect"
-      }
-    },
-    "rules": {
-      "semi": ["warn", "always"],
-      "quotes": ["warn", "double"],
-      "indent": ["warn",2],
-      "space-before-function-paren": ["error", "never"],
-      "operator-linebreak": ["warn", "never"],
-      "react/prop-types": ["warn", "never"]
+  "parser": "babel-eslint",
+  "extends": [
+    "react",
+    "eslint:recommended",
+    "plugin:import/errors", // if that file exports something the other file can import it and if it doesn't export it cant be imported somewhere else
+    "plugin:react/recommended", // this fixes a lot of React problems, but you can question these rules
+    "plugin:jsx-a11y/recommended", // this is doing some more abilities to understand accessibility
+    "prettier", // this two prettier rule set must be the last thing
+    "prettier/react"
+  ],
+  "env": {
+    "es6": true,
+    "browser": true,
+    "node": true
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
     }
+  },
+  "rules": {
+    "semi": ["warn", "always"],
+    "quotes": ["warn", "double"],
+    "indent": ["warn", 2],
+    "space-before-function-paren": ["error", "never"],
+    "operator-linebreak": ["warn", "never"],
+    "react/prop-types": ["warn", "never"]
   }
+}
