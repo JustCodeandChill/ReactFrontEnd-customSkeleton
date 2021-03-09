@@ -34,8 +34,6 @@ class InputText extends React.Component {
     this.setState({
       [name]: value,
     });
-
-    console.log(this.state);
   };
 
   handleFormSubmit = (event) => {
@@ -74,7 +72,6 @@ class InputText extends React.Component {
   };
 
   render() {
-    console.log('props: ', this.props);
     return (
       <form onSubmit={this.handleFormSubmit}>
         <Grid container spacing={1}>
